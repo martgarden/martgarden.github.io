@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root {
-  --footer-height: 50px;
-  --negative-footer-height: -50px;
-  --main-radius: 10px;
+  --main-radius: 20px;
+  --main-border: 5px;
   --padding: 20px;
+  --footer-height: 60px;
+  --negative-footer-height: -60px;
+  --footer-line-height: 50px; /*footer-height - 2*main-border*/
 }
 * {
   box-sizing: border-box;
@@ -25,14 +27,8 @@ body {
   min-height: 100%;
   margin: 0 auto var(--negative-footer-height);
   background-color: #C5D5E4;
-  background-clip: padding-box;
-  border-top-left-radius: var(--main-radius);
-  border-top-right-radius: var(--main-radius);
-  border-bottom: var(--footer-height) solid rgba(0,0,0,0);
-}
-.wrapper, .wrapper > :first-child {
-  border-top-left-radius: var(--main-radius);
-  border-top-right-radius: var(--main-radius);
+  overflow: hidden;
+  border-radius: var(--main-radius);
 }
 
 .wrapper > div {
@@ -40,6 +36,8 @@ body {
 }
 .wrapper, .footer {
   max-width: 1000px;
+  border: var(--main-border) solid rgba(0,0,0,0);
+  background-clip: padding-box;
 }
 
 .banner {
@@ -74,7 +72,7 @@ p {
   margin: var(--padding) 0 0 0;
 }
 .footer {
-  line-height: var(--footer-height);
+  line-height: var(--footer-line-height);
   padding: 0 var(--padding);
   margin: 0 auto;
   border-bottom-left-radius: var(--main-radius);
