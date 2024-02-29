@@ -5,14 +5,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+:root {
+  --footer-height: 50px;
+  --negative-footer-height: -50px;
+  --main-radius: 10px;
+  --padding: 20px;
+}
+* {
+  box-sizing: border-box;
+}
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  margin: 0;
+  font: 16px Sans-Serif;
+  background-color:  #8896AB;
+}
+.wrapper {
+  padding: 0px;
+  min-height: 100%;
+  margin: 0 auto var(--negative-footer-height);
+  background-color: #C5D5E4;
+  background-clip: padding-box;
+  border-top-left-radius: var(--main-radius);
+  border-top-right-radius: var(--main-radius);
+  border-bottom: var(--footer-height) solid rgba(0,0,0,0);
+}
+.wrapper, .wrapper > :first-child {
+  border-top-left-radius: var(--main-radius);
+  border-top-right-radius: var(--main-radius);
+}
+
+.wrapper > div {
+  padding: var(--padding);
+}
+.wrapper, .footer {
+  max-width: 1000px;
+}
+
+.banner {
+  width: 100%;
+  padding-bottom: var(--padding);
+  font: bold 25px Sans-Serif;
+}
+.banner, .footer {
+  background-color: #466362;
+  color: white;
+}
+.banner > a {
+  text-decoration: none;
+  color: white;
+}
+.banner > a:hover {
+    text-decoration: underline;
+}
+
+a {
+  color: #466362;
+}
+
+.footer,
+.push {
+  height: var(--footer-height);
+}
+h1 {
+  margin: 0 0 var(--padding) 0;
+}
+p {
+  margin: var(--padding) 0 0 0;
+}
+.footer {
+  line-height: var(--footer-height);
+  padding: 0 var(--padding);
+  margin: 0 auto;
+  border-bottom-left-radius: var(--main-radius);
+  border-bottom-right-radius: var(--main-radius);
+}
+
+.footer a {
+  color: #B7CCCC;
 }
 </style>
 </head>
 <body>
+<div class="wrapper">
+  <div class="banner"><a href="index.html">Martin Zahradníček – projekty</a></div>
+  <div class="content">
+      <custom-content/>
+  </div>
+  <div class="push"></div>
+</div>
 
-<custom-content/>
-
+<div class="footer">
+  Vygenerováno Perlovým <a href="build.html">skriptem</a>.
+</div>
 </body>
 </html>
