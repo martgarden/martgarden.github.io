@@ -8,7 +8,6 @@ use File::Find;
 use File::Copy;
 
 mkdir "_site";
-mkdir "_site/pokus";
 
 my @htmls = ();
 my @fhs = ();
