@@ -22,7 +22,7 @@ jobs:
       - name: install cpm and one module
         uses: perl-actions/install-with-cpm@stable
         with:
-        install: "List::MoreUtils"
+          install: "List::MoreUtils"
       - name: Generate site
         run: ./build.pl
       - name: Upload artifact
