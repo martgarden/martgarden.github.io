@@ -1,0 +1,38 @@
+<h1>
+  <cs>Tahle stránka</cs>
+  <en>This webpage</en>
+</h1>
+
+<p><cs>Repozitář:</cs><en>Repository:</en> <a href="https://github.com/martgarden/martgarden.github.io">https://github.com/martgarden/martgarden.github.io</a>
+
+<cs><p>Statická stránka na githubu generovaná z šablonového souboru "mooster.html" do kterého jsou perlovým scriptem vloženy všechny stránky v adresáři "contents".
+<ul>
+  <li>Cílové soubory jsou otevřeny všechny naráz, takže čteme "mooster.html" jen jednou.</li>
+  <li>Místo pro vložení označeno tagem "<custom-content>".</li>
+  <li>Lokalisace:
+    <ul>
+      <li>V jednom souboru jsou uloženy všechny jeho jazykové verse.</li>
+      <li>Neoznačený obsah uložen do všech jazykových verzí</li>
+      <li>Obsah mezi jazykovými tagy (např. "<en>english text</en>") uložen pouze do příslušné verse.</li>
+      <li>Všechny verse se opět tvoří dohromady (filehandly uloženy v hashi klíčoveném jazykovými zkratkami).</li>
+      <li>Text "<this-file-name>" nahrazen názvem souboru. To umožňuje přepínat mezi různými jazykovými versemi stejné stránky (použito v záhlaví).</li>
+    </ul>
+  </li>
+  <li>Deploy pomocí vlastní github-workflow.
+</ul></cs>
+
+<en><p>Static webpage on github generated from the template file "mooster.html". Into this file are one-by-one inserted the files in the "contents" folder.
+<ul>
+  <li>The target files are all opened simultaneously, hence "mooster.html" can be read only once.</li>
+  <li>The place for insertion denoted by "<custom-content/></li>
+  <li>Localisation:
+    <ul>
+      <li>One file contains all of its language versions.</li>
+      <li>Unmarked content is inserted into all the language versions.</li>
+      <li>Content between the language tags (e.&nbsp;g. "<en>english text</en>") is inserted only in the proper language version.</li>
+      <li>All the language versions are again created at the same time to avoid reading the files multiple times.
+      <li>Text "<this-file-name>" replaced by the name of the file. This allows me to reference from one language version of a page to different one (used in the header).</li>
+    </ul>
+  </li>
+  <li>Deployed via custom github-workflow.
+</ul></en>

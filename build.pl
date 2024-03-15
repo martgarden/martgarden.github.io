@@ -33,9 +33,6 @@ for my $dir (@dirs) {
 
 
 
-
-
-
 my @htmls;
 my @fhs;
 chdir 'contents';
@@ -102,17 +99,34 @@ while(<MOOSTER>) {
             while(<CONTENT>) {
                 my $line = $_;
                 while($line =~ /$searched/) {
-                    saving_spec $`, $fhs[$i];
+                    saving_spec($`, $fhs[$i]);
                     $searched = $search_mapping{$&};
                     $line = $';
                 }
-                saving_spec $line, $fhs[$i];
+                saving_spec($line, $fhs[$i]);
             }
-            close(CONTENT);
+            close CONTENT;
         }
     }
 }
-#for(@fhs) {
-#    close $_;
-#}
+for my $fh_hash (@fhs) {
+    for my $dir (@dirs) {
+        close $fh_hash->{$dir};
+    }
+}
 close(MOOSTER);
+
+sub replace_file_name {
+    return 1 if -d;
+    my $file = $_;
+    rename($file, "$file.bak") or die "error renaming to .bak";
+    open(FHIN, '<', "$file.bak") or die "can't open FHIN $file.bak";
+    open(FHOUT, '>', $file) or die "can't open FHOUT $file";
+    while(<FHIN>) {
+        $_ =~ s/<this-file-name>/$file/g;
+        print FHOUT $_;
+    }
+    close FHIN;
+    close FHOUT;
+}
+find(\&replace_file_name, '_site');
